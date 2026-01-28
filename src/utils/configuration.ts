@@ -15,7 +15,8 @@ export class ConfigurationHelper {
    */
   get<T>(key: string, defaultValue?: T): T | undefined {
     const config = vscode.workspace.getConfiguration(this.configSection);
-    return config.get<T>(key, defaultValue as T);
+    const value = config.get<T>(key);
+    return value !== undefined ? value : defaultValue;
   }
 
   /**
@@ -32,14 +33,6 @@ export class ConfigurationHelper {
   has(key: string): boolean {
     const config = vscode.workspace.getConfiguration(this.configSection);
     return config.has(key);
-  }
-
-  /**
-   * Get the entire configuration section
-   */
-  getAll(): { [key: string]: any } {
-    const config = vscode.workspace.getConfiguration(this.configSection);
-    return { ...config };
   }
 
   /**
