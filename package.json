@@ -1,5 +1,5 @@
 {
-  "name": "rde-common",
+  "name": "@ranchhandrobotics/rde-common",
   "version": "1.0.0",
   "description": "Common functionality for VSCode extensions",
   "main": "dist/index.js",
